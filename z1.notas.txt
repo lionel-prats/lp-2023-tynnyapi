@@ -1,0 +1,92 @@
+1. php artisan make:model Client -mcr // modelo + migracion + controlador(como un recurso, con todos los metodos)
+2. php artisan make:model Service -mcr 
+3. php artisan make:migration create_clients_services_table 
+4. configuro las 3 migraciones
+5. configuro modelos
+6. php artisan migrate
+
+POSTMAN -> http://localhost:8000/api/clients
+
+Peticiones por GET -> http://localhost:8000/api/clients
+En los Headers
+KEY Accept VALUE application/json
+
+Peticiones por POST -> http://localhost:8000/api/clients
+En los Headers
+KEY Accept VALUE application/json 
+En Body 
+option raw + JSON
+{
+    "name": "Héctor Torres",
+    "email": "hector@revistapalermo.net",
+    "password": "12345678",
+    "phone": "1534926447",
+    "address": "Independencia 2015"
+}
+{
+    "name": "Melina Franzese",
+    "email": "melina@revistapalermo.net",
+    "password": "12345678",
+    "phone": "1546442019",
+    "address": "Talcahuano 844"
+}
+{
+    "name": "Lionel Prats",
+    "email": "lionel@revistapalermo.net",
+    "password": "12345678",
+    "phone": "1527638473",
+    "address": "La Plata 832"
+}
+{
+    "name": "Leandro Farinha",
+    "email": "leandro@revistapalermo.net",
+    "password": "12345678",
+    "phone": "1555844014",
+    "address": "Rivera Indarte 849"
+}
+
+Peticiones por PUT -> http://localhost:8000/api/clients/2
+En los Headers
+KEY Accept VALUE application/json 
+En Body 
+option raw + JSON
+{
+    "name": "Melina Franzese",
+    "email": "melina@revistapalermo.net",
+    "password": "12345678",
+    "phone": "1546442019",
+    "address": "Olazábal 2533"
+}
+
+Peticiones por DELETE -> http://localhost:8000/api/clients/3
+En los Headers
+KEY Accept VALUE application/json
+
+------------------------------------------------------
+
+CARGA DE REGISTROS EN services 
+
+{
+    "name": "Suscripción Gráfica",
+    "description": "Revistas en papel",
+    "price": 2500
+}
+{
+    "name": "Suscripción Digital",
+    "description": "Acceso a los contenidos de la Web",
+    "price": 1100
+}
+{
+    "name": "Suscripción App Mobile",
+    "description": "Acceso a la App Mobile",
+    "price": 1700
+}
+
+------------------------------------------------------
+
+CARGA DE REGISTROS EN client_services
+
+{
+    "service_id": 1,
+    "client_id": 1
+}
